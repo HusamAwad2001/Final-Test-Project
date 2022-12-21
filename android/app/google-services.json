@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "796447447096",
+    "project_id": "ecommerce-course-assro",
+    "storage_bucket": "ecommerce-course-assro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796447447096:android:976ee0ff900cbc02aceecd",
+        "android_client_info": {
+          "package_name": "com.example.final_test_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796447447096-ku122pk8fdjd4b2v7aakong1dcv33go0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVhw2uLCNcNEwmobWW7LBlE9TWDuWUVi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796447447096-ku122pk8fdjd4b2v7aakong1dcv33go0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "796447447096-1d5l7nv5n65o7h61k06tr0ff2gltbcd8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shopAppGetx"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
