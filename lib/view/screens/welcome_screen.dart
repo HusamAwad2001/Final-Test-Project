@@ -1,4 +1,5 @@
 import 'package:final_test_project/routes/routes.dart';
+import 'package:final_test_project/utils/my_keys.dart';
 import 'package:final_test_project/utils/theme.dart';
 import 'package:final_test_project/view/widgets/text_utils.dart';
 import 'package:flutter/material.dart';
@@ -85,6 +86,7 @@ class WelcomeScreen extends StatelessWidget {
                     height: 250,
                   ),
                   ElevatedButton(
+                    key: const Key(MyKeys.getStartedButton),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: mainColor,
                         shape: RoundedRectangleBorder(
@@ -95,7 +97,7 @@ class WelcomeScreen extends StatelessWidget {
                           vertical: 12,
                         )),
                     onPressed: () {
-                      Get.offNamed(Routes.loginScreen);
+                      Get.offNamed(Routes.signUpScreen);
                     },
                     child: const TextUtils(
                       fontSize: 22,

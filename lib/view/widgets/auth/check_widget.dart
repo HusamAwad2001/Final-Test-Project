@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:final_test_project/logic/controllers/auth_controller.dart';
 import 'package:final_test_project/utils/theme.dart';
 import 'package:final_test_project/view/widgets/text_utils.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CheckWidget extends StatelessWidget {
-  CheckWidget({Key? key}) : super(key: key);
+  CheckWidget({required this.testKey});
+  String testKey;
 
   final controller = Get.find<AuthController>();
 
@@ -15,6 +16,7 @@ class CheckWidget extends StatelessWidget {
       return Row(
         children: [
           InkWell(
+            key: Key(testKey),
             onTap: () {
               controller.checkBox();
             },

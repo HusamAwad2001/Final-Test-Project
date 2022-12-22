@@ -1,16 +1,18 @@
+import 'package:final_test_project/logic/controllers/product_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:final_test_project/logic/controllers/product_controller.dart';
 
 class SearchFormText extends StatelessWidget {
-  SearchFormText({Key? key}) : super(key: key);
+  SearchFormText({Key? key, this.nameKey}) : super(key: key);
 
   final controller = Get.find<ProductController>();
+  String? nameKey;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ProductController>(
       builder: (_) => TextField(
+        key: Key(nameKey!),
         controller: controller.searchTextController,
         cursorColor: Colors.black,
         keyboardType: TextInputType.text,

@@ -1,3 +1,4 @@
+import 'package:final_test_project/utils/my_keys.dart';
 import 'package:final_test_project/utils/theme.dart';
 import 'package:final_test_project/view/widgets/home/card_items.dart';
 import 'package:final_test_project/view/widgets/home/search_text_form.dart';
@@ -48,7 +49,9 @@ class HomeScreen extends StatelessWidget {
                       underLine: TextDecoration.none,
                     ),
                     const SizedBox(height: 20),
-                    SearchFormText(),
+                    SearchFormText(
+                      nameKey: MyKeys.searchProductButton,
+                    ),
                   ],
                 ),
               ),

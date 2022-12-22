@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
               GetStorage().read<bool>('auth') == true
           ? AppRoutes.mainScreen
           : AppRoutes.welcome,
+      // initialRoute: Routes.signUpScreen,
       getPages: AppRoutes.routes,
     );
   }

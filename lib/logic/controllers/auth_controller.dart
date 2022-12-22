@@ -8,24 +8,24 @@ import 'package:get_storage/get_storage.dart';
 class AuthController extends GetxController {
   bool isVisibility = false;
   bool isCheckBox = false;
-  var displayUserName = ''.obs;
-  var displayUserPhoto = ''.obs;
-  var displayUserEmail = ''.obs;
+  RxString displayUserName = 'Test User Name'.obs;
+  RxString displayUserPhoto =
+      'https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'
+          .obs;
+  RxString displayUserEmail = 'Test User Email'.obs;
   FirebaseAuth auth = FirebaseAuth.instance;
   FaceBookModel? faceBookModel;
 
   var isSignedIn = false;
   final GetStorage authBox = GetStorage();
 
-  User? get userProfile => auth.currentUser;
+  User? get userProfile => auth.currentUser!;
 
   @override
   void onInit() {
-    displayUserName.value =
-        userProfile != null ? userProfile!.displayName! : "";
-    displayUserPhoto.value =
-        'https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png';
-    displayUserEmail.value = userProfile != null ? userProfile!.email! : "";
+    // displayUserName.value =
+    //     userProfile != null ? userProfile!.displayName! : "";
+    // displayUserEmail.value = userProfile != null ? userProfile!.email! : "";
 
     super.onInit();
   }
@@ -47,14 +47,10 @@ class AuthController extends GetxController {
     required String password,
   }) async {
     try {
-      await auth
-          .createUserWithEmailAndPassword(email: email, password: password)
-          .then((value) {
-        displayUserName.value = name;
-        auth.currentUser!.updateDisplayName(name);
-      });
+      await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
       update();
-      Get.offNamed(Routes.mainScreen);
+      Get.offNamed(Routes.loginScreen);
     } on FirebaseAuthException catch (error) {
       String title = error.code.replaceAll(RegExp('-'), ' ').capitalize!;
       String message = '';
@@ -70,7 +66,7 @@ class AuthController extends GetxController {
       Get.snackbar(
         title,
         message,
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         backgroundColor: Colors.green,
         colorText: Colors.white,
       );
@@ -78,7 +74,7 @@ class AuthController extends GetxController {
       Get.snackbar(
         'Error!',
         error.toString(),
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         backgroundColor: Colors.green,
         colorText: Colors.white,
       );
@@ -90,10 +86,7 @@ class AuthController extends GetxController {
     required String password,
   }) async {
     try {
-      await auth
-          .signInWithEmailAndPassword(email: email, password: password)
-          .then((value) =>
-              displayUserName.value = auth.currentUser!.displayName!);
+      await auth.signInWithEmailAndPassword(email: email, password: password);
 
       isSignedIn = true;
       authBox.write("auth", isSignedIn);

@@ -1,5 +1,6 @@
 import 'package:final_test_project/logic/controllers/auth_controller.dart';
 import 'package:final_test_project/routes/routes.dart';
+import 'package:final_test_project/utils/my_keys.dart';
 import 'package:final_test_project/utils/my_string.dart';
 import 'package:final_test_project/utils/theme.dart';
 import 'package:final_test_project/view/widgets/auth/auth_button.dart';
@@ -68,6 +69,7 @@ class SignUpScreen extends StatelessWidget {
                           height: 50,
                         ),
                         AuthTextFromField(
+                          key: const Key(MyKeys.signUpName),
                           controller: nameController,
                           obscureText: false,
                           validator: (value) {
@@ -92,6 +94,7 @@ class SignUpScreen extends StatelessWidget {
                           height: 20,
                         ),
                         AuthTextFromField(
+                          key: const Key(MyKeys.signUpEmail),
                           controller: emailController,
                           obscureText: false,
                           validator: (value) {
@@ -117,6 +120,7 @@ class SignUpScreen extends StatelessWidget {
                         GetBuilder<AuthController>(
                           builder: (_) {
                             return AuthTextFromField(
+                              key: const Key(MyKeys.signUpPassword),
                               controller: passwordController,
                               obscureText:
                                   controller.isVisibility ? false : true,
@@ -155,13 +159,16 @@ class SignUpScreen extends StatelessWidget {
                         const SizedBox(
                           height: 50,
                         ),
-                        CheckWidget(),
+                        CheckWidget(
+                          testKey: MyKeys.signUpChecked,
+                        ),
                         const SizedBox(
                           height: 50,
                         ),
                         GetBuilder<AuthController>(
                           builder: (_) {
                             return AuthButton(
+                              key: const Key(MyKeys.signUpButton),
                               onPressed: () {
                                 if (controller.isCheckBox == false) {
                                   Get.snackbar(
