@@ -41,7 +41,7 @@ class AuthController extends GetxController {
     update();
   }
 
-  void signUpUsingFirebase({
+  Future<void> signUpUsingFirebase({
     required String name,
     required String email,
     required String password,
@@ -81,7 +81,7 @@ class AuthController extends GetxController {
     }
   }
 
-  void logInUsingFirebase({
+  Future<void> logInUsingFirebase({
     required String email,
     required String password,
   }) async {

@@ -19,10 +19,10 @@ class CategoryController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    getCategorys();
+    getCategories();
   }
 
-  void getCategorys() async {
+  Future<void> getCategories() async {
     var categoryName = await CategoryServices.getCategory();
 
     try {

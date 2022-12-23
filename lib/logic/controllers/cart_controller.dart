@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:final_test_project/models/product_models.dart';
 import 'package:final_test_project/routes/routes.dart';
 import 'package:final_test_project/utils/theme.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CartController extends GetxController {
   var productsMap = {}.obs;
 
-  void addProductToCart(ProductModels productModels) {
+  addProductToCart(ProductModels productModels) {
     if (productsMap.containsKey(productModels)) {
       productsMap[productModels] += 1;
     } else {
@@ -15,22 +15,20 @@ class CartController extends GetxController {
     }
   }
 
-  void removeProductsFarmCart(ProductModels productModels) {
+  removeProductsFarmCart(ProductModels productModels) {
     if (productsMap.containsKey(productModels) &&
         productsMap[productModels] == 1) {
       productsMap.removeWhere((key, value) => key == productModels);
     } else {
       productsMap[productModels] -= 1;
     }
-
-    
   }
 
-  void removeOneProduct(ProductModels productModels) {
+  removeOneProduct(ProductModels productModels) {
     productsMap.removeWhere((key, value) => key == productModels);
   }
 
-  void clearAllProducts() {
+  clearAllProducts() {
     Get.defaultDialog(
       title: "Clean Products",
       titleStyle: const TextStyle(
